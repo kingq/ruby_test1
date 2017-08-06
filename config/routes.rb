@@ -21,6 +21,13 @@ Rails.application.routes.draw do
       end  
   end  
 
+  resources :roles do
+      collection do
+        get  :add_permissions
+        post :save_permissions
+      end  
+  end  
+
 
 
     resources :employees do

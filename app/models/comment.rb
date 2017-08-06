@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-has_many :blogs
+	belongs_to :blog
 end

@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
-	has_many :attachments, as: :attachment_entity
+    has_many :attachments, as: :attachment_entity
+    has_many :comments
     belongs_to :category
 
 	def user_name

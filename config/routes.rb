@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       collection do
         get  :add_permissions
         post :save_permissions
+	get  :add_employees
+	post :save_employees
       end  
   end  
 

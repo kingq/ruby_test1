@@ -46,7 +46,14 @@ class Admin::RolesController < Admin::BaseController
     @role.permission_ids = params[:role][:permission_ids]
   end
 	
+  def add_employees
+    @role = Role.find(params[:id])
+  end
 
+  def save_employees
+    @role = Role.find(params[:id])
+    @role.employee_ids = params[:role][:employee_ids]
+  end
 
   def update
     @role.update(role_params)

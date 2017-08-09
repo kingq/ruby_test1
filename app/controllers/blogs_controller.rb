@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy,:add_comments]
   layout "blog"
 
   # GET /blogs
@@ -19,10 +19,15 @@ class BlogsController < ApplicationController
     render "index"
   end
 
+  def add_comments
+    Comment.create(blog_id:@blog.id,content:params[:comment_text])
+    render :partial => 'add_comments'
+  end
+
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-	@blog.update(view_count: @blog.view_count.to_i + 1)
+    @blog.update(view_count: @blog.view_count.to_i + 1)
   end
 
   # GET /blogs/new
@@ -33,8 +38,6 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
   end
-
-
 
   # POST /blogs
   # POST /blogs.json

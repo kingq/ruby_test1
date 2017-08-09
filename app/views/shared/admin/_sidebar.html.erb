@@ -1,9 +1,26 @@
 <div class="ui vertical fluid menu" id="verticalMenu">
-  <ul>
+ <ul>
     <li>
       <a class="item">
-        <i class="configure icon"></i>
+        <i class="legal icon"></i>
         <span class="main_menu">文章管理</span>
+        <i class="right dropdown icon"></i>
+      </a>
+      <div class="menu content child active">
+        <%= link_to admin_blogs_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>文章管理</span>
+        <% end %>
+        <%= link_to admin_categories_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>类型管理</span>
+        <% end %>
+      </div>
+    </li>
+  <li>
+      <a class="item">
+        <i class="configure icon"></i>
+        <span class="main_menu">系统管理</span>
         <i class="right dropdown icon"></i>
       </a>
       <div class="menu content child active">
@@ -11,26 +28,14 @@
           <i class="left bullseye icon"></i>
           <span>员工管理</span>
         <% end %>
-        <%= link_to admin_blogs_path, class: 'item', active_class: 'actives' do %>
-          <i class="left bullseye icon"></i>
-          <span>文章管理</span>
-        <% end %>
-
-	<%= link_to admin_categories_path, class: 'item', active_class: 'actives' do %>
-          <i class="left bullseye icon"></i>
-          <span>类型管理</span>
-        <% end %>
-
-	<%= link_to admin_comments_path, class: 'item', active_class: 'actives' do %>
-          <i class="left bullseye icon"></i>
-          <span>评论管理</span>
-        <% end %>
-
-	<%= link_to admin_roles_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_permissions_path, class: 'item', active_class: 'actives' do %>
           <i class="left bullseye icon"></i>
           <span>权限管理</span>
         <% end %>
-
+        <%= link_to admin_roles_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>角色管理</span>
+        <% end %>
       </div>
     </li>
 

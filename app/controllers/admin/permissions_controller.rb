@@ -18,6 +18,17 @@ class Admin::PermissionsController < Admin::BaseController
     render json: {name: @permission.name}
   end
 
+
+  def add_roles
+    @permission = Permission.find(params[:id])
+  end
+
+  def save_roles
+    @permission = Permission.find(params[:id])
+    @permission.role_ids = params[:permission][:role_ids]
+  end
+  
+
   # GET /permissions/new
   def new
     @permission = Permission.new

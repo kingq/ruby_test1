@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get :top_search
       post :upload_image
+      get :add_comments
     end
   end
 
@@ -20,7 +21,15 @@ Rails.application.routes.draw do
         get :show_name
       end  
   end  
+  resources :permissions do
+      collection do
+        get :show_name
+        get  :add_roles
+        post :save_roles
+      end  
+    end
 
+    
   resources :roles do
       collection do
         get  :add_permissions

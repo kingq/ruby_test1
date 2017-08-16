@@ -5,6 +5,11 @@ class Admin::EmployeesController < Admin::BaseController
   # before_action :left_tab, :only => [:index]
   # before_action :set_employee, only: [:destroy]
 
+
+  def desboart
+
+  end
+
   def index
     @q =  SearchParams.new(params[:search_params] || {})
     @employees = Employee.default_where(@q.attributes(self)).page(params[:page]).per(10)
@@ -27,6 +32,16 @@ class Admin::EmployeesController < Admin::BaseController
     @employee =  Employee.find(params[:id])
     render :layout => false
   end
+
+  def add_roles
+    @employee = Employee.find(params[:id])
+  end
+
+  def save_roles
+    @employee = Employee.find(params[:id])
+    @employee.role_ids = params[:employee][:role_ids]
+  end
+
 
   def update
     @employee = Employee.find(params[:id])
